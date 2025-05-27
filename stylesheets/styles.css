@@ -1,4 +1,77 @@
+/*Configs*/
+@font-face {
+  font-family: "Noto Sans";
+  src: url(/assets/fonts/NotoSans-VariableFont_wdth\,wght.ttf);
+}
 
+:root {
+  --color-navy: hsl(227, 75%, 14%);
+  --color-dark-grey: hsl(226, 25%, 17%);
+  --color-mid-grey: hsl(225, 23%, 24%);
+  --color-grey: hsl(226, 11%, 37%);
+
+  --ff-main: "Noto Sans", sans-serif;
+
+  --fs-grid-title: 2.125rem;
+  --fs-filters: 1.25rem;
+  --fs-name: 1.25rem;
+  --fs-description: 1rem;
+  --fs-remove: 1rem;
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+}
+
+body {
+  font-family: var(--ff-main);
+}
+
+/*layout styles*/
+.extension-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/*content styles*/
+.list-label {
+  font-size: var(--fs-grid-title);
+  font-weight: var(--fw-bold);
+  line-height: 100%;
+  letter-spacing: -0.0625rem;
+}
+
+.filter-button {
+  font-size: var(--fs-filters);
+  font-weight: var(--fw-regular);
+  line-height: 140%;
+  letter-spacing: -0.01875rem;
+}
+
+.filter-button.active-filter {
+  font-weight: var(--fw-medium);
+}
+
+.extension-name {
+  font-size: var(--fs-name);
+  font-weight: var(--fw-bold);
+  line-height: 120%;
+  letter-spacing: -0.0125rem;
+}
+
+.extension-description {
+  font-size: var(--fs-description);
+  font-weight: var(--fw-regular);
+  line-height: 140%;
+  letter-spacing: -0.03125rem;
+}
+
+.remove-button {
+  font-size: var(--fs-remove);
+  font-weight: var(--fw-medium);
+  line-height: 140%;
+  letter-spacing: -0.03125rem;
+}
 
 /*default footer styles*/
 .attribution { font-size: 11px; text-align: center; }

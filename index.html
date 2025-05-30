@@ -13,20 +13,18 @@
 <body>
   <div class="container">
     <main class="content">
-      <div class="theme-bar">
-        <img src="assets/images/logo.svg" alt="Logo">
-        <img src="assets/images/icon-sun.svg" alt="Sun Icon" class="theme-icon">
-      </div>
-      <div>
+      <header class="theme-bar">
+        <img src="assets/images/logo.svg" alt="Logo" class="logo">
+        <img src="assets/images/icon-moon.svg" alt="Theme Icon" class="theme-icon" tabindex="0">
+      </header>
+      <div class="control-bar">
         <h1 class="list-label">Extensions List</h1>
-        <div class="filter-group">
-          <button class="filter-button">All</button>
-          <button class="filter-button">Active</button>
-          <button class="filter-button">Inactive</button>
-        </div>
-        <div class="extension-grid">
-          <!--cards will be rendered here-->
-        </div>
+        <button class="filter-button active-filter" id="all-filter">All</button>
+        <button class="filter-button" id="active-filter">Active</button>
+        <button class="filter-button" id="inactive-filter">Inactive</button>
+      </div>
+      <div class="extension-grid">
+        <!--cards will be rendered here-->
       </div>
     </main>
   </div>

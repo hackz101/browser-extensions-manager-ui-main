@@ -18,6 +18,8 @@ themeToggle.addEventListener('click', () => {
   }
 });
 
+document.body.addEventListener('touchstart', () => {}, { passive: true });
+
 async function loadExtensions() {
   try {
     const fetchResponse = await fetch('data.json');
@@ -63,11 +65,6 @@ async function loadExtensions() {
       allExtensions.forEach((extension) => {
         extension.style.display = 'flex';
       });
-
-      //blur for mobile
-      if (!allFilter.matches(':focus-visible')) {
-        allFilter.blur();
-      }
     });
 
     activeFilter.addEventListener('click', () => {
@@ -88,11 +85,6 @@ async function loadExtensions() {
         const extToHide = allExtensions.find(extension => extension.querySelector('.extension-name').innerText === inactiveExtension.name);
         extToHide.style.display = 'none';
       });
-
-      //blur for mobile
-      if (!activeFilter.matches(':focus-visible')) {
-        activeFilter.blur();
-      }
     });
 
     inactiveFilter.addEventListener('click', () => {
@@ -113,11 +105,6 @@ async function loadExtensions() {
         const extToHide = allExtensions.find(extension => extension.querySelector('.extension-name').innerText === activeExtension.name);
         extToHide.style.display = 'none';
       });
-
-      //blur for mobile
-      if (!inactiveFilter.matches(':focus-visible')) {
-        inactiveFilter.blur();
-      }
     });
 
   } catch (error) {

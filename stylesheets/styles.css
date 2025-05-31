@@ -276,6 +276,12 @@ input:checked + .slider::before {
 .attribution { font-size: 11px; text-align: center; }
 .attribution a { color: hsl(228, 45%, 44%); }
 
+/*for mobile*/
+button,
+input {
+  -webkit-tap-highlight-color: transparent;
+}
+
 /*hover effect styles*/
 @media (hover: hover) and (pointer: fine) {
   .filter-button:hover {

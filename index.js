@@ -60,7 +60,7 @@ async function loadExtensions() {
       currentFilter.classList.remove('active-filter');
       allFilter.classList.add('active-filter');
 
-      filterExtensions();
+      filterExtensions("all");
     });
 
     activeFilter.addEventListener('click', () => {
@@ -69,7 +69,7 @@ async function loadExtensions() {
       currentFilter.classList.remove('active-filter');
       activeFilter.classList.add('active-filter');
 
-      filterExtensions();
+      filterExtensions("active");
     });
 
     inactiveFilter.addEventListener('click', () => {
@@ -78,7 +78,7 @@ async function loadExtensions() {
       currentFilter.classList.remove('active-filter');
       inactiveFilter.classList.add('active-filter');
 
-      filterExtensions();
+      filterExtensions("inactive");
     });
 
   } catch (error) {

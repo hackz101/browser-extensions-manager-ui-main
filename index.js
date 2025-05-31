@@ -20,8 +20,6 @@ themeToggle.addEventListener('click', () => {
   }
 });
 
-document.body.addEventListener('touchstart', () => {}, { passive: true });
-
 async function loadExtensions() {
   try {
     const fetchResponse = await fetch('data.json');

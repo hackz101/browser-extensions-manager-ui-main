@@ -278,7 +278,8 @@ input:checked + .slider::before {
 
 /*for mobile*/
 button,
-input {
+input,
+.active-toggle {
   -webkit-tap-highlight-color: transparent;
 }
 

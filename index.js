@@ -1,6 +1,5 @@
 const body = document.querySelector('body');
 const themeToggle = document.querySelector('.theme-icon');
-console.log(themeToggle);
 const extensionGrid = document.querySelector('.extension-grid');
 let data = [];
 
@@ -8,13 +7,16 @@ document.addEventListener('DOMContentLoaded', loadExtensions);
 
 themeToggle.addEventListener('click', () => {
   const isDarkMode = body.classList.contains('dark');
+  const logo = body.querySelector('.logo');
 
   if (isDarkMode) {
     body.classList.remove('dark');
     themeToggle.src = './assets/images/icon-moon.svg';
+    logo.src = './assets/images/logo.svg';
   } else {
     body.classList.add('dark');
     themeToggle.src = './assets/images/icon-sun.svg';
+    logo.src = './assets/images/logo-dark.svg';
   }
 });
 

@@ -275,6 +275,8 @@ input:checked + .slider::before {
 /*default footer styles*/
 .attribution { font-size: 11px; text-align: center; }
 .attribution a { color: hsl(228, 45%, 44%); }
+body.dark .attribution { color: #ffffff; }
+body.dark .attribution a { color: hsl(3, 77%, 44%); }
 
 /*for mobile*/
 button,

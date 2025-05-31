@@ -11,12 +11,7 @@ This is a solution to the [Browser extensions manager UI challenge on Frontend M
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -33,20 +28,12 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![](./screenshot.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [https://github.com/hackz101/browser-extensions-manager-ui-main](https://github.com/hackz101/browser-extensions-manager-ui-main)
+- Live Site URL: [https://browser-extensions-manager-ui-main-chi.vercel.app/](https://browser-extensions-manager-ui-main-chi.vercel.app/)
 
 ## My process
 
@@ -56,60 +43,70 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - CSS custom properties
 - Flexbox
 - CSS Grid
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- Responsive Design
+- [Normalize.css](https://necolas.github.io/normalize.css/) - For CSS Resets
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+I learned a few things while going through this challenge:
 
-To see how you can add code snippets, see below:
+- **There may be mobile flickering on inputs or anything with a tab index due to default touch styling**
+To fix this, all I had to do was change the default tap highlight color.
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
 ```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
+button,
+input,
+.active-toggle {
+  -webkit-tap-highlight-color: transparent;
 }
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+- **You can get around mobile sticky hover by checking the input via media queries**
+Inside you put your hover styles.
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+```css
+@media (hover: hover) and (pointer: fine) {
+  ...
+}
+```
 
-### Continued development
+- **Instead of media queries, you can use auto-fit with minmax on grids to make them responsive**
+The auto-fit puts as many columns as it can while the minmax gives the minimum and maximum widths of those columns.
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+```css
+.extension-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(21.5rem, 1fr));
+  gap: 0.75rem;
+  justify-content: center;
+}
+```
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+- **You can overwrite css variables**
+This can be used for color theme variables which can be switched between.
 
-### Useful resources
+```css
+:root {
+  --bg-gradient: linear-gradient(180deg, #EBF2FC 0%, #EEFBF9 100%);
+  --color-content-bg: hsl(200, 60%, 99%);
+  --color-theme-border: hsl(217, 61%, 90%);
+  --color-theme-toggle: hsl(0, 0%, 93%);
+  ...
+}
+...
+.dark {
+  --bg-gradient: linear-gradient(180deg, #04091B 0%, #091540 100%);
+  --color-content-bg: hsl(226, 25%, 17%);
+  --color-theme-border: hsl(217, 61%, 90%);
+  --color-theme-toggle: hsl(225, 23%, 24%);
+  ...
+}
+```
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- **You can't directly change the fill inside of an svg if you are using an img tag**
+To fix this, you either need to inline the svg or you have to dynamically load it in.
+The route I took was actually just making a dark svg and changing the color of the fill.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+- Frontend Mentor - [@hackz101](https://www.frontendmentor.io/profile/hackz101)

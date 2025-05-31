@@ -60,11 +60,7 @@ async function loadExtensions() {
       currentFilter.classList.remove('active-filter');
       allFilter.classList.add('active-filter');
 
-      //reset all extensions
-      const allExtensions = Array.from(extensionGrid.children);
-      allExtensions.forEach((extension) => {
-        extension.style.display = 'flex';
-      });
+      filterExtensions();
     });
 
     activeFilter.addEventListener('click', () => {
@@ -73,18 +69,7 @@ async function loadExtensions() {
       currentFilter.classList.remove('active-filter');
       activeFilter.classList.add('active-filter');
 
-      //reset all extensions
-      const allExtensions = Array.from(extensionGrid.children);
-      allExtensions.forEach((extension) => {
-        extension.style.display = 'flex';
-      });
-
-      //hide inactive extensions
-      const inactiveExtensions = data.filter(extension => extension.isActive === false);
-      inactiveExtensions.forEach((inactiveExtension) => {
-        const extToHide = allExtensions.find(extension => extension.querySelector('.extension-name').innerText === inactiveExtension.name);
-        extToHide.style.display = 'none';
-      });
+      filterExtensions();
     });
 
     inactiveFilter.addEventListener('click', () => {
@@ -93,18 +78,7 @@ async function loadExtensions() {
       currentFilter.classList.remove('active-filter');
       inactiveFilter.classList.add('active-filter');
 
-      //reset all extensions
-      const allExtensions = Array.from(extensionGrid.children);
-      allExtensions.forEach((extension) => {
-        extension.style.display = 'flex';
-      });
-
-      //hide active extensions
-      const activeExtensions = data.filter(extension => extension.isActive === true);
-      activeExtensions.forEach((activeExtension) => {
-        const extToHide = allExtensions.find(extension => extension.querySelector('.extension-name').innerText === activeExtension.name);
-        extToHide.style.display = 'none';
-      });
+      filterExtensions();
     });
 
   } catch (error) {
@@ -150,4 +124,28 @@ function removeExtension(name) {
 function toggleActivity(name) {
   const extToToggle = data.find(extension => extension.name === name);
   extToToggle.isActive = !extToToggle.isActive;
+}
+
+function filterExtensions(selection) {
+
+  //reset all extensions
+  const allExtensions = Array.from(extensionGrid.children);
+  allExtensions.forEach((extension) => {
+    extension.style.display = 'flex';
+  });
+
+  //hide extensions
+  if (selection === "active") {
+    const inactiveExtensions = data.filter(extension => extension.isActive === false);
+      inactiveExtensions.forEach((inactiveExtension) => {
+        const extToHide = allExtensions.find(extension => extension.querySelector('.extension-name').innerText === inactiveExtension.name);
+        extToHide.style.display = 'none';
+      });
+  } else if (selection === "inactive") {
+    const activeExtensions = data.filter(extension => extension.isActive === true);
+      activeExtensions.forEach((activeExtension) => {
+        const extToHide = allExtensions.find(extension => extension.querySelector('.extension-name').innerText === activeExtension.name);
+        extToHide.style.display = 'none';
+      });
+  }
 }
